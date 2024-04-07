@@ -23,12 +23,26 @@ namespace MBDRPC.Helpers
 			return Process.GetProcesses().Any(process => process.ProcessName.Equals(appName, StringComparison.OrdinalIgnoreCase));
 		}
 
+        /// <summary>
+        /// Checks if the specified application is currently running and not exited.
+        /// </summary>
+        /// <param name="appName">The name of the application to check.</param>
+        /// <returns>
+        /// <c>true</c> if the application is running and not exited; otherwise, <c>false</c>
+        /// </returns>
+        public static bool IsAppRunningAndNotExited(string appName)
+        {
+            return Process.GetProcesses()
+                          .Any( process => process.ProcessName.Equals( appName , StringComparison.OrdinalIgnoreCase ) &&
+                                           ! process.HasExited );
+        }
 
-		/// <summary>
-		/// Checks if any of the specified apps/processes are currently running.
-		/// </summary>
-		/// <param name="appNames">Names of the applications/processes to check.</param>
-		public static bool IsOneAppRunning(params string[] appNames)
+
+        /// <summary>
+        /// Checks if any of the specified apps/processes are currently running.
+        /// </summary>
+        /// <param name="appNames">Names of the applications/processes to check.</param>
+        public static bool IsOneAppRunning(params string[] appNames)
 		{
 			return appNames.Any(appName => IsAppRunning(appName));
 		}
