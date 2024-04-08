@@ -153,7 +153,7 @@ namespace MBDRPC.Helpers
         /// <summary>
         /// Checks if the Microsoft Word application is currently running.
         /// </summary>
-        public bool IsMicrosoftWordRunning()
+        public static bool IsMicrosoftWordRunning()
         {
 			return Process.GetProcesses().Any(process => process.ProcessName.Equals("winword", StringComparison.OrdinalIgnoreCase));
         }
@@ -161,7 +161,7 @@ namespace MBDRPC.Helpers
         /// <summary>
         /// Checks if the Microsoft Excel application is currently running.
         /// </summary>
-        public bool IsMicrosoftExcelRunning()
+        public static bool IsMicrosoftExcelRunning()
         {
             return Process.GetProcesses().Any(process => process.ProcessName.Equals("excel", StringComparison.OrdinalIgnoreCase));
         }
@@ -169,23 +169,31 @@ namespace MBDRPC.Helpers
         /// <summary>
         /// Checks if the Microsoft PowerPoint application is currently running.
         /// </summary>
-        public bool IsMicrosoftPowerPointRunning()
+        public static bool IsMicrosoftPowerPointRunning()
         {
             return Process.GetProcesses().Any(process => process.ProcessName.Equals("powerpnt", StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
+        /// Checks if the Microsoft Access application is currently running.
+        /// </summary>
+        public static bool IsMicrosoftAccessRunning()
+        {
+            return Process.GetProcesses().Any(process => process.ProcessName.Equals("MSACCESS", StringComparison.OrdinalIgnoreCase));
+        }
+
+        /// <summary>
         /// Checks if the Microsoft Whiteboard application is currently running.
         /// </summary>
-        public bool IsMicrosoftWhiteboardRunning()
-        {
+        public static bool IsMicrosoftWhiteboardRunning()
+        { 
             return Process.GetProcesses().Any(process => process.ProcessName.Equals("MicrosoftWhiteboard", StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
         /// Checks if the Microsoft OneDrive application is currently running.
         /// </summary>
-        public bool IsMicrosoftOneDriveRunning()
+        public static bool IsMicrosoftOneDriveRunning()
         {
             return Process.GetProcesses().Any(process => process.ProcessName.Equals("onedrive", StringComparison.OrdinalIgnoreCase));
         }
@@ -193,7 +201,7 @@ namespace MBDRPC.Helpers
         /// <summary>
         /// Checks if the Microsoft Outlook application is currently running.
         /// </summary>
-        public bool IsMicrosoftOutlookRunning()
+        public static bool IsMicrosoftOutlookRunning()
         {
             return Process.GetProcesses().Any(process => process.ProcessName.Equals("OUTLOOK", StringComparison.OrdinalIgnoreCase));
         }
@@ -202,10 +210,25 @@ namespace MBDRPC.Helpers
         /// <summary>
         /// Checks if the Microsoft Publisher application is currently running.
         /// </summary>
-        public bool IsMicrosoftPublisherRunning()
+        public static bool IsMicrosoftPublisherRunning()
         {
             return Process.GetProcesses().Any(process => process.ProcessName.Equals("mspub", StringComparison.OrdinalIgnoreCase));
         }
 
+        /// <summary>
+        /// Checks if the Microsoft Power BI application is currently running.
+        /// </summary>
+        public static bool IsMicrosoftPowerBIRunning()
+        {
+            return Process.GetProcesses().Any(process => process.ProcessName.Equals("PBIDesktop", StringComparison.OrdinalIgnoreCase));
+        }
+
+        /// <summary>
+        /// Checks if Discord is running
+        /// </summary>
+        public static bool IsDiscordRunning()
+        {
+            return Process.GetProcessesByName("discord").Any();
+        }
     }
 }
